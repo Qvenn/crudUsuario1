@@ -1,0 +1,53 @@
+<h2 mat-dialog-title> SubSerie</h2>
+<mat-dialog-content> 
+    <form [formGroup]="formUsuario">
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Nombre Completo</mat-label>
+                <input matInput  formControlName="usuario">
+              </mat-form-field>
+        </div>
+        <!-- <div class="flex">
+            <mat-form-field>
+                <mat-label>estado</mat-label>
+                <input matInput  formControlName="estado">
+              </mat-form-field>
+        </div> -->
+        <div class="flex">
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput  formControlName="contra">
+              </mat-form-field>
+        </div>
+        
+         
+        
+<div class="flex">    
+              <label>Serie</label>
+              <select formControlName="IdRol">
+                <option *ngFor="let element of NombreSerie" [value]="element.idRol">
+                    {{element.description}}
+                </option>
+              </select>  
+</div>
+<div class="flex">
+    
+       <label> fotos</label>
+        <img  class="m-2"  width="130px" height="90px" [src]="PhotoPath+formUsuario.value.phot" > 
+             
+            <input class="m-2" type="file" (change)="imageUpload($event)"  formControlName="phot" >
+      
+</div> 
+         
+        
+    </form>
+
+</mat-dialog-content> 
+ 
+ 
+<mat-dialog-actions  >
+    <button mat-raised-button mat-dialog-close>Volver</button> 
+    <button mat-flat-button color="primary"  [disabled]="formUsuario.invalid" (click)="guardar()">Guardar</button>
+    <!--   <button mat-flat-button color="warn" (click)="volver()" style="margin-left: 8px;">Volver</button> -->
+      
+  </mat-dialog-actions>

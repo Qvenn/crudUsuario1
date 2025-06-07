@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Eliminar SubSerie</h1>
+<div mat-dialog-content>
+  ¿Desea eliminar la subSerie "{{subSerieEliminar.userr}}"?
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button mat-dialog-close>No,volver</button>
+  <button mat-raised-button color="warn" cdkFocusInitial (click)="eliminarSubSerie()">Si, eliminar</button>
+</div>

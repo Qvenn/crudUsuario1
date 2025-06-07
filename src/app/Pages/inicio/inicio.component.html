@@ -1,0 +1,106 @@
+<mat-card style="width: 70%; margin: 50px auto">
+
+    <mat-card-header>
+        <mat-card-title><p>lista Subserie</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      
+       
+         
+        <input matInput (keyup)="applyFilter($event)"  #input placeholder="filtro">
+       
+       
+      
+        <button mat-flat-button color="primary" (click)="agregarProducto()">Nueva SubSerie</button>
+
+        <table mat-table [dataSource]="dataSource"  class="mat-elevation-z2" style="margin-top:20px">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+             
+            
+            <ng-container matColumnDef="userr">
+              <th mat-header-cell *matHeaderCellDef> Usuario</th>
+              <td mat-cell *matCellDef="let element"> {{element.userr}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="password">
+              <th mat-header-cell *matHeaderCellDef> password </th>
+              <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="idRol">
+              <th mat-header-cell *matHeaderCellDef> idRol </th>
+              <td mat-cell *matCellDef="let element"> {{element.idRol}} </td>
+            </ng-container>
+            <ng-container matColumnDef="des">
+              <th mat-header-cell *matHeaderCellDef> rolDescripcion </th>
+              <td mat-cell *matCellDef="let element"> {{element.des}} </td>
+            </ng-container>
+            <ng-container matColumnDef="photos">
+              <th mat-header-cell *matHeaderCellDef> fotoss </th> 
+              <td mat-cell *matCellDef="let element">  <img width="130px" height="60px" [src]="PhotoPath+element.photo" alt=""> </td>
+          </ng-container>
+          <ng-container matColumnDef="esActive">
+            <th mat-header-cell *matHeaderCellDef> activo </th>
+            <td mat-cell *matCellDef="let element"> {{element.esActive}} </td>
+          </ng-container>
+           <!--  <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> codigo </th>
+              <input type="text" >
+            </ng-container> -->
+          
+            <!-- Weight Column -->
+            <!-- <ng-container matColumnDef="estado">
+              <th mat-header-cell *matHeaderCellDef> estado </th>
+              <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+            </ng-container> -->
+          
+            <!-- Symbol Column -->
+            <!-- <ng-container matColumnDef="idSerie">
+              <th mat-header-cell *matHeaderCellDef>  idSerie </th>
+              <td mat-cell *matCellDef="let element"> {{element.idSerie}} </td>
+            </ng-container> -->
+ 
+          <!-- Symbol Column -->
+            <ng-container matColumnDef="accion">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="editarProducto(element)">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn" (click)="eliminar(element)">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                </td>
+            </ng-container>
+
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </mat-card-content>
+     
+  </mat-card>
+ <!--  <div  >
+    <table>
+      <thead>
+        <tr>
+          <th>
+            nombreSerie
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dep of nombreSerie">
+          <td>{{dep.nombreSerie}}</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </div> -->
